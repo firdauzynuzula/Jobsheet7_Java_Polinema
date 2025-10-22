@@ -6,29 +6,35 @@ public class SiakadWhile11 {
 
         int i = 0;
         Scanner scanner = new Scanner(System.in);
+        
         System.out.print("Masukkan jumlah mahasiswa: ");
         int jumlahMahasiswa = scanner.nextInt();
-        while (i < jumlahMahasiswa) {
-            i++;
-            double nilai, terendah = 100, tertinggi = 0;
-            System.out.print("Masukkan nilai mahasiswa ke-" + i + ": ");
-            nilai = scanner.nextDouble();
-
-            if (nilai > tertinggi) {
-                tertinggi = nilai;
-            }
-            if (nilai < terendah) {
-                terendah = nilai;
-            }
-
-            if (nilai < 60) {
-                System.out.println("Mahasiswa ke-" + i + " tidak lulus.");
-            } else {
-                System.out.println("Mahasiswa ke-" + i + " lulus.");
-            }   
             
-            System.out.println("nilai tertinggi saat ini: " + tertinggi);
-            System.out.println("nilai terendah saat ini: " + terendah);
+        
+        while (i < jumlahMahasiswa) {
+            System.out.print("Masukkan nilai mahasiswa ke-: ");
+            int nilai = scanner.nextInt();
+
+            if (nilai < 0 || nilai > 100) {
+                System.out.println("Nilai tidak valid. Masukkan nilai antara 0 hingga 100.");
+                continue;
+            }
+            if (nilai > 80 && nilai <= 100) {
+                System.out.println(i + "Nilai mahasiswa ke-" + (i + 1) + " adalah A");
+            } else if (nilai > 73 && nilai <= 80) {
+                System.out.println("Nilai mahasiswa ke-" + (i + 1) + " adalah B+");
+            } else if (nilai > 65 && nilai <= 73) {
+                System.out.println("Nilai mahasiswa ke-" + (i + 1) + " adalah B");
+            } else if (nilai > 60 && nilai <= 65) {
+                System.out.println("Nilai mahasiswa ke-" + (i + 1) + " adalah C+");
+            } else if (nilai > 50 && nilai <= 60) {
+                System.out.println("Nilai mahasiswa ke-" + (i + 1) + " adalah C");
+            } else if (nilai > 39 && nilai <= 50) {
+                System.out.println("Nilai mahasiswa ke-" + (i + 1) + " adalah D");
+            } else {
+                System.out.println("Nilai mahasiswa ke-" + (i + 1) + " adalah E");
+            }
+            i++;
         }
     }
 }
